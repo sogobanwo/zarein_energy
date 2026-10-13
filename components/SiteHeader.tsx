@@ -78,7 +78,7 @@ export default function SiteHeader({ active }: { active?: NavKey }) {
           role="dialog"
           aria-modal="true"
           aria-label="Site menu"
-          className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-navy p-5 text-white lg:hidden"
+          className="fixed inset-0 z-50 flex flex-col overflow-x-hidden overflow-y-auto bg-navy p-5 text-white lg:hidden"
         >
           <Image src={flame} alt="" width={250} height={359} className="pointer-events-none absolute -bottom-[10%] -right-[30%] h-[70%] w-auto opacity-15" />
           <div className="relative flex items-center justify-between">
