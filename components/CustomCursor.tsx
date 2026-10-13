@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function CustomCursor() {
+  const [isMobile, setIsMobile] = useState(false);
+
   const cursorSize = 20;
   const cursorOuterSize = 40;
 
@@ -22,6 +24,24 @@ export default function CustomCursor() {
   const cursorOuterYSpring = useSpring(cursorOuterY, outerSpringConfig);
 
   useEffect(() => {
+    // Check if device is mobile/touch-enabled
+    const checkMobile = () => {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 1024;
+      setIsMobile(isTouchDevice || isSmallScreen);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) return;
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX - cursorSize / 2);
       cursorY.set(e.clientY - cursorSize / 2);
@@ -34,7 +54,10 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener("mousemove", moveCursor);
     };
-  }, [cursorX, cursorY, cursorOuterX, cursorOuterY]);
+  }, [cursorX, cursorY, cursorOuterX, cursorOuterY, isMobile]);
+
+  // Don't render custom cursor on mobile devices
+  if (isMobile) return null;
 
   return (
     <>
