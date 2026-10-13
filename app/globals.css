@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: #0a2a4a;
+  --color-ink: #0e1621;
+  --color-paper: #f4f5f6;
+  --color-body: #3d4752;
+  --color-muted: #5b6672;
+  --color-line: #d5dadf;
+  --color-mist: #c9d0d6;
+  --color-hairline: #e3e7ea;
+}
+
+/* Wide (expanded) Archivo, used for all display type */
+@utility font-wide {
+  font-stretch: 125%;
+}
+@utility font-semiwide {
+  font-stretch: 112%;
+}
+
+/* Responsive side padding shared by every full-width section */
+@utility px-gutter {
+  padding-inline: clamp(20px, 4vw, 64px);
+}
+
+/* Small uppercase section label */
+@utility eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-rise { animation: rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-marquee { animation: marquee 45s linear infinite; }
+.animate-marquee:hover { animation-play-state: paused; }
+
+/* Card lift on hover (desktop pointers only) */
+@media (hover: hover) {
+  .lift { transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.35s; }
+  .lift:hover { transform: translateY(-8px); box-shadow: 0 28px 56px rgba(10, 42, 74, 0.18); }
+  .lift .lift-img { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .lift:hover .lift-img { transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-rise, .animate-marquee { animation: none; }
+}
