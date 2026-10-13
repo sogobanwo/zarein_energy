@@ -35,7 +35,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
 }
 
 body {
@@ -43,6 +43,21 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  cursor: none; /* Hide default cursor on desktop */
+}
+
+/* Show default cursor on mobile/tablet */
+@media (max-width: 1024px) {
+  body {
+    cursor: auto;
+  }
+}
+
+/* Hide custom cursor on mobile/tablet */
+@media (max-width: 1024px) {
+  body > div[style*="position: fixed"] {
+    display: none;
+  }
 }
 
 @keyframes rise {

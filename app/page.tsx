@@ -7,7 +7,7 @@ import ValueChain from "@/components/ValueChain";
 import { Button, DarkStat, OnlyDesktop, OnlyMobile, SectionHeading, StripeBar } from "@/components/ui";
 import { flame, homeInsights, images, keyFacts, projects, site } from "@/lib/content";
 
-const statement = "font-wide text-[40px] font-extrabold uppercase leading-[0.95] tracking-[-0.03em] md:text-[clamp(40px,8vw,128px)]";
+const statement = "font-wide text-[32px] font-extrabold uppercase leading-[0.95] tracking-[-0.03em] md:text-[clamp(40px,8vw,128px)]";
 
 export default function HomePage() {
   const featured = projects.filter((p) => p.featured);
@@ -16,7 +16,7 @@ export default function HomePage() {
     <main>
       {/* ───────── Hero ───────── */}
       <section className="p-2.5 md:p-4">
-        <div className="relative flex min-h-[760px] flex-col overflow-hidden rounded-3xl bg-navy text-white md:min-h-[820px] md:rounded-[28px]">
+        <div className="relative flex min-h-[660px] flex-col overflow-hidden rounded-3xl bg-navy text-white md:min-h-[820px] md:rounded-[28px]">
           <Image
             src={images.homeHero}
             alt=""
@@ -37,12 +37,12 @@ export default function HomePage() {
 
           <SiteHeader active="home" />
 
-          <div className="animate-rise relative z-10 px-5 pt-7 md:px-8 md:pt-10">
+          {/* <div className="animate-rise relative z-10 px-5 pt-7 md:px-8 md:pt-10">
             <div className="font-wide text-[64px] font-extrabold leading-[0.85] tracking-[-0.04em] md:text-[clamp(72px,15.5vw,236px)] md:tracking-[-0.03em]">
               ZAREIN
             </div>
             <StripeBar size="md" className="mt-3.5 md:mt-[18px]" />
-          </div>
+          </div> */}
 
           <div className="relative z-10 mt-auto flex flex-col gap-4 px-5 pb-6 pt-12 md:flex-row md:flex-wrap md:items-end md:justify-between md:gap-8 md:px-8 md:pb-14">
             <div className="flex max-w-[640px] flex-col gap-4 md:gap-5">
@@ -85,22 +85,22 @@ export default function HomePage() {
       </section>
 
       {/* ───────── Statement ───────── */}
-      <section id="about" className="px-gutter flex flex-col items-center gap-2.5 overflow-hidden pb-16 pt-16 text-center md:gap-5 md:pb-[120px] md:pt-[72px]">
-        <div className="relative inline-flex gap-2.5 items-center">
-          <span className={`${statement} whitespace-nowrap`}>Reliable power </span>
+      <section id="about" className="px-gutter flex flex-col items-center gap-2 overflow-hidden pb-16 pt-16 text-center md:gap-5 md:pb-[120px] md:pt-[72px]">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-2.5">
+          <span className={statement}>Reliable</span>
+          <span className={statement}>power</span>
         </div>
-        <div className="flex items-center justify-center gap-3 md:gap-5">
+        <div className="flex flex-wrap items-center justify-center gap-2 md:gap-5">
           <span className={statement}>for</span>
-          <span className="inline-flex h-12 w-[104px] items-center justify-center rounded-full bg-navy md:h-[clamp(56px,7.5vw,112px)] md:w-[clamp(120px,17vw,260px)]">
-            <Image src={flame} alt="" width={50} height={72} className="h-[72%] w-auto" />
+          <span className="inline-flex h-10 w-20 items-center justify-center rounded-full bg-navy md:h-[clamp(56px,7.5vw,112px)] md:w-[clamp(120px,17vw,260px)]">
+            <Image src={flame} alt="" width={50} height={72} className="h-[70%] w-auto md:h-[72%]" />
           </span>
-          <span className={`${statement} hidden md:inline`}>Nigerian</span>
+          <span className={statement}>Nigerian</span>
         </div>
-        <span className={`${statement} md:hidden`}>Nigerian</span>
-        <div className="relative inline-flex items-center">
-          <span className={`${statement} whitespace-nowrap`}>industry</span>
+        <div className="flex items-center justify-center">
+          <span className={statement}>industry</span>
         </div>
-        <p className="m-0 mt-4 max-w-[680px] text-base leading-relaxed text-body [text-wrap:balance] md:mt-6 md:text-lg md:leading-[1.7]">
+        <p className="m-0 mt-4 max-w-[680px] px-4 text-base leading-relaxed text-body [text-wrap:balance] md:mt-6 md:px-0 md:text-lg md:leading-[1.7]">
           We develop and operate the full gas-to-power chain: securing supply, processing gas and generating embedded power close to the people who use it.
         </p>
       </section>

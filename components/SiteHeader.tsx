@@ -26,7 +26,10 @@ export default function SiteHeader({ active }: { active?: NavKey }) {
       <header className="relative z-20 m-3 flex items-center justify-between gap-4 rounded-full border border-white/20 bg-white/10 py-1.5 pl-3.5 pr-1.5 backdrop-blur-md md:m-5 md:py-2.5 md:pl-[22px] md:pr-2.5">
         <Link href="/" className="flex items-center gap-2 text-white md:gap-3" aria-label="Zarein Energy home">
           <Image src={flame} alt="" width={25} height={36} className="h-[26px] w-auto md:h-8" priority />
-          <span className="font-wide text-xs font-bold tracking-[0.08em] md:text-sm">ZAREIN ENERGY</span>
+          <div className="flex flex-col gap-0.5">
+            <span className="font-wide text-xs font-bold leading-none tracking-[0.08em] md:text-sm">ZAREIN ENERGY</span>
+            <span className="text-[8px] font-medium uppercase leading-none tracking-[0.12em] text-white/60 md:text-[9px]">Powering Industrial Growth</span>
+          </div>
         </Link>
 
         <nav aria-label="Main" className="hidden items-center gap-[30px] text-sm font-medium lg:flex">
@@ -81,7 +84,10 @@ export default function SiteHeader({ active }: { active?: NavKey }) {
           <div className="relative flex items-center justify-between">
             <span className="flex items-center gap-2.5">
               <Image src={flame} alt="" width={20} height={28} className="h-7 w-auto" />
-              <span className="font-wide text-[13px] font-bold tracking-[0.08em]">ZAREIN ENERGY</span>
+              <div className="flex flex-col gap-0.5">
+                <span className="font-wide text-[13px] font-bold leading-none tracking-[0.08em]">ZAREIN ENERGY</span>
+                <span className="text-[9px] font-medium uppercase leading-none tracking-[0.12em] text-white/60">Powering Industrial Growth</span>
+              </div>
             </span>
             <button
               type="button"

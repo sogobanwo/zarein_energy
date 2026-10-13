@@ -40,7 +40,16 @@ export default function SiteFooter() {
         <div className="mx-auto flex max-w-full flex-col md:w-fit md:px-4">
           <div className="flex flex-col gap-7 px-5 pb-7 pt-10 md:w-0 md:min-w-full md:flex-row md:flex-wrap md:justify-between md:gap-12 md:px-0 md:pb-14 md:pt-[72px]">
             <div className="flex flex-col gap-4 md:max-w-[400px] md:flex-[1_1_320px] md:gap-5">
-              <Image src={flame} alt="Zarein Energy" width={33} height={48} className="h-[42px] w-auto self-start md:h-12" />
+              <div className="flex items-center gap-3">
+                <Image src={flame} alt="Zarein Energy" width={33} height={48} className="h-[42px] w-auto md:h-12" />
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-wide text-xl font-extrabold leading-none tracking-[-0.02em] text-white md:text-2xl">ZAREIN</span>
+                    <span className="text-xs font-semibold uppercase leading-none tracking-[0.16em] text-white/70 md:text-sm">ENERGY</span>
+                  </div>
+                  <span className="text-[10px] font-medium uppercase leading-none tracking-[0.14em] text-white/50 md:text-xs">Powering Industrial Growth</span>
+                </div>
+              </div>
               <p className="m-0 text-sm leading-relaxed text-white/80 md:text-[15px]">
                 Dependable gas-to-power infrastructure for Nigerian industry, estates and distribution networks.
               </p>
